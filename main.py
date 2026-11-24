@@ -19,7 +19,11 @@ ENTRY = (
 )
 
 
+MAX_ENTRY_CHARS = 2000
+
+
 def main() -> None:
+    assert len(ENTRY) <= MAX_ENTRY_CHARS, "entry exceeds the character cap"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8", newline="\n") as f:
         f.write(ENTRY)
